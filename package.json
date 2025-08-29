@@ -20,6 +20,7 @@
     "start": "node dist/index.js",
     "db:up": "docker compose up -d",
     "db:down": "docker compose down -v",
+    "db:shadow": "docker exec nooro-mysql mysql -uroot -proot -e \"CREATE DATABASE IF NOT EXISTS shadow;\"",
     "prisma:migrate": "prisma migrate dev",
     "prisma:generate": "prisma generate",
     "prisma:studio": "prisma studio"

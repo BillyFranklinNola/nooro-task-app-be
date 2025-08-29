@@ -22,19 +22,21 @@ Make a .env file
 Fill in with the following values:
 
 DATABASE_URL="mysql://task-app:noorochallenge@127.0.0.1:3306/tasks"
-SHADOW_DATABASE_URL="mysql://root:root@127.0.0.1:3306/tasks"
+SHADOW_DATABASE_URL="mysql://root:root@127.0.0.1:3306/shadow"
 CORS_ORIGIN="http://localhost:3000"
 
 ___________________________________
 
 
-## Docker DB setup (recommended)
-
-docker compose up -d
+## set up DB and start app
 
 yarn install
 
-npx prisma migrate dev --name init
+yarn db:up 
+
+yarn db:shadow
+
+yarn prisma:migrate
 
 yarn dev
 
